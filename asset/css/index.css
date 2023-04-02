@@ -1,0 +1,127 @@
+
+.container {
+    background-color: #FCF4E7;
+    position: absolute;
+    border: 5px solid black;
+    border-radius: 25px;
+    box-shadow: 10px 10px black;
+    top: 50px;
+    left: 20%;
+    height: 80vh;
+    width: 60vw;
+}
+
+.nav-bar {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 5px solid black;
+    gap: 4;
+}
+
+.title {
+    cursor: pointer;
+    transition: transform 250ms;
+}
+
+.title:hover {
+    transform: scale(1.1);
+}
+
+.list {
+    display: flex;
+    align-items: center;
+}
+
+.list > .item {
+    cursor: pointer;
+    padding: 3px 5px;
+    margin: 0 10px;
+}
+
+.content {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 300;
+}
+
+.title-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #179AB4;
+    letter-spacing: 3px;
+}
+
+.admin {
+    background-color: rgba(233, 69, 69, 0.722);
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+}
+
+.member {
+    background-color: rgba(121, 193, 240, 0.821);
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+}
+
+.toggle {
+    visibility: hidden;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    margin: 0 auto;
+    left: 40%;
+}
+
+.toggle.show {
+    visibility: visible;
+}
+
+button {
+    --c:  #f6a054; /* the color*/
+    box-shadow: 0 0 0 .1em inset var(--c); 
+    --_g: linear-gradient(var(--c) 0 0) no-repeat;
+    background: 
+      var(--_g) calc(var(--_p,0%) - 100%) 0%,
+      var(--_g) calc(200% - var(--_p,0%)) 0%,
+      var(--_g) calc(var(--_p,0%) - 100%) 100%,
+      var(--_g) calc(200% - var(--_p,0%)) 100%;
+    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+    outline-offset: .1em;
+    transition: background-size .3s, background-position 0s .3s;
+}
+button:hover {
+    --_p: 100%;
+    transition: background-position .3s, background-size 0s;
+}
+button:active {
+    box-shadow: 0 0 9e9q inset #0009; 
+    background-color: var(--c);
+    color: #fff;
+}
+button {
+    border-radius: 15px;
+    margin: 10px 0;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: .2em .6em;
+    border: none;
+}
+
+
+
+
+
+
+

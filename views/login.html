@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quản lý đào tạo PTIT</title>
+    <link rel='stylesheet' href='../asset/css/index.css' />
+    <link rel='stylesheet' href='../asset/css/style.css' />
+    <link rel='stylesheet' href='../asset/css/form.css' />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <script>
+      function showError() {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Tài khoản hoặc mật khẩu không đúng!'
+        })
+      }
+    </script>
+    <div class="main"></div>
+    <div class="container">
+      <div class="nav-bar">
+        <h3 class="title">Quản lý đào tạo sinh viên</h3>
+        <ul class="list">
+            <li class="item">🅧</li>
+            <li class="item">🅧</li>
+            <li class="item">🅧</li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="main-site">
+            <div class="form">
+                <h3>Đăng nhập</h3>
+                <!-- <form method="POST" action="/login"> -->
+                  <div class="input-container ic1">
+                    <input id="username" class="input" type="text" name="username" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="username" class="placeholder">Tài khoản</label>
+                  </div>
+                  <div class="input-container ic2">
+                    <input id="password" class="input" type="password" name="password" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="password" class="placeholder">Mật khẩu</label>
+                  </div>
+                  <button onclick="showError()" type="button" class="submit">Đăng nhập</button>
+                <!-- </form>  -->
+              </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
