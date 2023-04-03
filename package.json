@@ -4,6 +4,10 @@
     "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
+    "eslint": "^8.37.0",
     "html-webpack-plugin": "^5.5.0"
-  }
+  },
+  "scripts": {
+    "lint": "eslint ."
+}
 }

@@ -9,7 +9,6 @@
   </head>
   <body>
     <script src="../js/api/admin.js"></script>
-    
     <div class="main"></div>
     <div class="container">
       <div class="nav-bar">
@@ -21,12 +20,35 @@
         </ul>
       </div>
       <div class="content">
-        <h3 id="func-name">Chọn năm học</h3>
-        <ul id="main"></ul>
+        <h3 id="func-name">Chọn lớp học</h3>
+        <div class="managerTable">
+            <table width=100%">
+              <col style="width:5%">
+              <col style="width:10%">
+              <col style="width:20%">
+              <col style="width:20%">
+              <col style="width:20%">
+              <col style="width:15%">
+              <col style="width:15%">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Tên môn học</th>
+                  <th>Chuyên cần</th>
+                  <th>Thực hành</th>
+                  <th>Kiểm tra</th>
+                  <th>Bài tập</th>  
+                  <th>Cuối kỳ</th>  
+                </tr>
+              </thead>
+              <tbody id="main">
+              </tbody>
+            </table>
+          </div>
       </div>
     </div>
     <script>
-      getNamHoc();
+      getLHP();
     </script>
   </body>
 </html>

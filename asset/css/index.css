@@ -32,6 +32,7 @@
 .list {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .list > .item {
@@ -40,35 +41,17 @@
     margin: 0 10px;
 }
 
+.list#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .content {
     margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     font-weight: 300;
-}
-
-.title-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #179AB4;
-    letter-spacing: 3px;
-}
-
-.admin {
-    background-color: rgba(233, 69, 69, 0.722);
-    border-radius: 5px;
-    padding: 5px;
-    color: #fff;
-}
-
-.member {
-    background-color: rgba(121, 193, 240, 0.821);
-    border-radius: 5px;
-    padding: 5px;
-    color: #fff;
 }
 
 .toggle {
@@ -99,11 +82,11 @@ button {
       var(--_g) calc(200% - var(--_p,0%)) 100%;
     background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
     outline-offset: .1em;
-    transition: background-size .3s, background-position 0s .3s;
+    transition: background-size .5s, background-position 0s .5s;
 }
 button:hover {
     --_p: 100%;
-    transition: background-position .3s, background-size 0s;
+    transition: background-position .5s, background-size 0s;
 }
 button:active {
     box-shadow: 0 0 9e9q inset #0009; 
@@ -119,6 +102,11 @@ button {
     border: none;
 }
 
+
+#func-name {
+    font-size: 2.3rem;
+    
+}
 
 
 
