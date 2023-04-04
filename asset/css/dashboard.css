@@ -42,7 +42,7 @@ table::-webkit-scrollbar {
 
 
 td , th{
-    padding: 15px 20px;
+    padding: 10px 15px;
     text-align: center;
 }
 
@@ -66,28 +66,61 @@ tr:hover{
     background-color: #eeeeee;
 }
 
-.role {
-    padding: 7px;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.role.guest {
-    background-color: #6d6666;
-}
-.role.admin {
-    background-color: rgb(232, 88, 88);
-}
-.role.member {
-    background-color: #568fde;
-}
-
-.delete {
+td > button {
     padding: 10px;
-    background-color: rgb(235, 82, 82);
+    font-size: 1rem;
     color: #fff;
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 5px;
 }
+
+
+button.add {
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgb(80, 159, 66);
+}
+button.add:hover {
+    background-color: rgb(51, 104, 42);
+}
+
+button.edit {
+    background-color: rgb(116, 191, 240);
+}
+
+button.edit:hover {
+    background-color: rgb(37, 164, 249);
+}
+
+button.delete {
+    background-color: rgb(244, 130, 130);
+}
+
+button.delete:hover {
+    background-color: rgb(246, 91, 91);
+}
+
+.toggle {
+    visibility: hidden;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    margin: 0 auto;
+    left: 40%;
+}
+
+.toggle.show {
+    visibility: visible;
+}
+
+
+
+
 

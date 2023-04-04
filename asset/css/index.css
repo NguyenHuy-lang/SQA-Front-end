@@ -6,9 +6,8 @@
     border-radius: 25px;
     box-shadow: 10px 10px black;
     top: 50px;
-    left: 20%;
-    height: 80vh;
-    width: 60vw;
+    height: 82vh;
+    width: 80vw;
 }
 
 .nav-bar {
@@ -71,7 +70,7 @@
     visibility: visible;
 }
 
-button {
+button.button {
     --c:  #f6a054; /* the color*/
     box-shadow: 0 0 0 .1em inset var(--c); 
     --_g: linear-gradient(var(--c) 0 0) no-repeat;
@@ -84,16 +83,16 @@ button {
     outline-offset: .1em;
     transition: background-size .5s, background-position 0s .5s;
 }
-button:hover {
+button.button:hover {
     --_p: 100%;
     transition: background-position .5s, background-size 0s;
 }
-button:active {
+button.button:active {
     box-shadow: 0 0 9e9q inset #0009; 
     background-color: var(--c);
     color: #fff;
 }
-button {
+button.button {
     border-radius: 15px;
     margin: 10px 0;
     font-size: 2rem;
