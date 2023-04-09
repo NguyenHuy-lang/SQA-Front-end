@@ -2,53 +2,60 @@
 <html>
   <head>
     <title>Quản lý đào tạo PTIT</title>
-    <link rel='stylesheet' href='../asset/css/index.css' />
-    <link rel='stylesheet' href='../asset/css/style.css' />
-    <link rel="stylesheet" href="../asset/css/dashboard.css" />
+    <link rel='stylesheet' href='../../asset/css/index.css' />
+    <link rel='stylesheet' href='../../asset/css/style.css' />
+    <link rel='stylesheet' href='../../asset/css/form.css' />
+    <link rel='stylesheet' href='../../asset/css/dashboard.css' />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
-    <script src="../js/api/admin.js"></script>
+    <script src="../../js/api/student.js"></script>
+    
     <div class="main"></div>
     <div class="container">
       <div class="nav-bar">
         <h3 class="title"><a href="/views">Quản lý đào tạo sinh viên</a></h3>
         <ul class="list">
-            <li class="item">Xin chào Nguyễn Quang Huy (ADMIN)</li>
+            <li class="item">Xin chào Nguyễn Quang Huy (Sinh viên)</li>
             <li>|</li>
             <li class="item">Đăng xuất</li>
         </ul>
       </div>
       <div class="content">
-        <h4 id="func-name">Chọn lớp</h4>
+        <h5 id="func-name">Nhập môn công nghệ phần mềm</h5>
         <div class="managerTable">
             <table width=100%">
-              <col style="width:5%">
-              <col style="width:30%">
-              <col style="width:25%">
+              <col style="width:22%">
+              <col style="width:15%">
               <col style="width:10%">
-              <col style="width:5%">
+              <col style="width:10%">
+              <col style="width:10%">
+              <col style="width:10%">
+              <col style="width:10%">
+              <col style="width:10%">
               <col style="width:10%">
               <col style="width:10%">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Tên môn học</th>
-                  <th>Giảng viên</th>
-                  <th>Phòng</th>  
-                  <th>Số lượng</th>  
-                  <th>Bắt đầu</th>
-                  <th>Kết thúc</th>
+                  <th>Tên sinh viên</th>
+                  <th>Mã sinh viên</th>
+                  <th>Điểm chuyên cần</th>  
+                  <th>Điểm thực hành</th>  
+                  <th>Điểm kiểm tra</th>
+                  <th>Điểm bài tập</th>
+                  <th>Điểm cuối kỳ</th>
+                  <th>Điểm hệ 4</th>
+                  <th>Điểm hệ 10</th>
+                  <th>Điểm chữ</th>
                 </tr>
               </thead>
               <tbody id="main">
               </tbody>
             </table>
           </div>
-          <h2 id="error"></h2>
           <div class="wrapper">
             <div class="link_wrapper">
-              <a class="text-content" href="./admin.html">Quay lại</a>
+              <a class="text-content" href="../sinhvien.html">Quay lại</a>
               <div class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
                   <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
@@ -59,7 +66,7 @@
       </div>
     </div>
     <script>
-      getLHP();
+      getKetQua();
     </script>
   </body>
 </html>

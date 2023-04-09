@@ -47,6 +47,12 @@
     flex-direction: column;
 }
 
+#main {
+    margin-top: 10px;
+    max-height: 50vh;
+    overflow: scroll;
+}
+
 .content {
     margin-top: 50px;
     text-align: center;
@@ -64,6 +70,47 @@
     top: 200px;
     margin: 0 auto;
     left: 40%;
+}
+
+#addSV {
+    visibility: hidden;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    margin: 0 auto;
+    left: 40%;
+}
+
+#addSV.show {
+    visibility: visible;
+}
+
+#addSV h3 {
+    color: #333;
+}
+#editSV {
+    visibility: hidden;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    margin: 0 auto;
+    left: 40%;
+}
+
+#editSV.show {
+    visibility: visible;
+}
+
+#editSV h3 {
+    color: #333;
 }
 
 .toggle.show {
@@ -101,9 +148,77 @@ button.button {
     border: none;
 }
 
+.wrapper{
+    position: fixed;
+    left: 50%;
+    margin-top: 50px;
+    transform: translate(-50%, -50%);
+}
+
+.link_wrapper{
+    position: relative;
+}
+
+.text-content {
+    display: block;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    background: #333;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 3px solid #333;
+    transition: all .35s;
+    cursor: pointer;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+    position: absolute;
+    transform: rotate(45deg);
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: all .35s;
+}
+
+.icon svg{
+    width: 30px;
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    transform: rotate(-225deg);
+    fill: #FBBEAC;
+    transition: all .35s;
+}
+
+.text-content:hover{
+    width: 170px;
+    border: 3px solid #FBBEAC;
+    background: transparent;
+    color: rgb(218, 121, 85);
+}
+
+.text-content:hover + .icon{
+    border: 3px solid #FBBEAC;
+    left: -25%;
+}
+
+#error {
+    margin-top: 50px;
+    color: rgb(231, 98, 98);
+}
+
 
 #func-name {
-    font-size: 2.3rem;
+    font-size: 1.6rem;
     
 }
 

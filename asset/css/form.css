@@ -1,13 +1,11 @@
 .form-msg {
     border-radius: 20px;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 10px;
     width: 350px;
     background-color: #FCF4E8;
     border: 2px solid #333;
     box-sizing: border-box;
-    padding: 30px;
-    width: 350px;
 }
 
 .form-title {
@@ -15,17 +13,13 @@
 }
 
 .input-container {
-    height: 50px;
+    height: 40px;
     position: relative;
     width: 100%;
 }
 
-.ic1 {
-    margin-top: 40px;
-}
-
 .ic2 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .input {
@@ -49,7 +43,7 @@
 .placeholder {
     color: #65657b;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: .8rem;
     font-weight: 400;
     left: 20px;
     line-height: 14px;
@@ -57,12 +51,12 @@
     position: absolute;
     transform-origin: 0 50%;
     transition: transform 200ms, color 200ms;
-    top: 20px;
+    top: 15px;
 }
 
 .input:focus ~ .placeholder,
 .input:not(:placeholder-shown) ~ .placeholder {
-    transform: translateY(-37px) translateX(-5px) scale(0.75);
+    transform: translateY(-30px) translateX(-5px) scale(0.75);
 }
 
 .input:not(:placeholder-shown) ~ .placeholder {
@@ -71,13 +65,7 @@
 
 .input:focus ~ .placeholder {
     color: #333;
-    font-size: 18px;
-}
-
-.error {
-    color: rgba(196, 50, 50, 0.828);
-    font-size: .8rem;
-    margin-top: 10px;
+    font-size: 16px;
 }
 
 .submit {
@@ -89,31 +77,60 @@
     height: 40px;
     margin-top: 20px;
     text-align: center;
-    width: 50%;
-}
-
-.cancel {
-    background-color: rgba(218, 120, 85, 0.795);
-    border-radius: 12px;
-    color: #eee;
-    cursor: pointer;
-    font-size: 18px;
-    height: 40px;
-    margin-top: 10px;
-    text-align: center;
-    width: 50%;
+    width: 30%;
+    margin: 15px 10px;
 }
 
 .submit:active {
     background-color: rgb(173, 95, 67);
 }
 
-.back {
-    background-color: #FCF4E8;
-    color: rgb(235, 137, 102);
+.input-radio {
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+    color: #333;
+    margin-left: 10px;
+}
+
+/* Radio */
+
+input[type="radio"] {
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(0deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%),
+                      -webkit-linear-gradient(90deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%);
+    border-radius: 10px;
+    box-shadow: inset 0 1px 1px hsla(0,0%,100%,.8),
+                0 0 0 1px hsla(0,0%,0%,.6),
+                0 2px 3px hsla(0,0%,0%,.6),
+                0 4px 3px hsla(0,0%,0%,.4),
+                0 6px 6px hsla(0,0%,0%,.2),
+                0 10px 6px hsla(0,0%,0%,.2);
     cursor: pointer;
-    font-size: 14px;
-    margin-top: 20px;
-    text-align: center;
-    width: 100%;
+    display: inline-block;
+    height: 15px;
+    margin-right: 15px;
+    position: relative;
+    width: 15px;
+    -webkit-appearance: none;
+}
+input[type="radio"]:after {
+    background-color: #444;
+    border-radius: 25px;
+    box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
+                0 1px 1px hsla(0,0%,100%,.8);
+    content: '';
+    display: block;
+    height: 7px;
+    left: 4px;
+    position: relative;
+    top: 4px;
+    width: 7px;
+}
+input[type="radio"]:checked:after {
+    background-color: #f66;
+    box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
+                inset 0 2px 2px hsla(0,0%,100%,.4),
+                0 1px 1px hsla(0,0%,100%,.8),
+                0 0 2px 2px hsla(0,70%,70%,.4);
 }

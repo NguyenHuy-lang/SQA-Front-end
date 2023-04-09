@@ -29,8 +29,9 @@
               <col style="width:10%">
               <col style="width:5%">
               <col style="width:5%">
-              <col style="width:10%">
-              <col style="width:10%">
+              <col style="width:5%">
+              <col style="width:5%">
+              <col style="width:5%">
               <col style="width:35%">
               <thead>
                 <tr>
@@ -38,65 +39,197 @@
                   <th>Tên sinh viên</th>
                   <th>Mã sinh viên</th>
                   <th>Giới tính</th>  
-                  <th>Số điện thoại</th>  
-                  <th>Email</th>
-                  <th>Địa chỉ</th>
-                  <th>Sửa/Xoá</th>
+                  <th>Địa chỉ</th>  
+                  <th>Email</th>  
+                  <th>Số điện thoại</th>
+                  <th>Ngày sinh</th>
+                  <th>Sửa / xoá</th>
                 </tr>
               </thead>
               <tbody id="main">
               </tbody>
             </table>
-            <button class="add" onclick="addStudent()">Thêm sinh viên mới</button>
+            <div id="btn-add"></div>
+          </div>
+          <h2 id="error"></h2>
+          <div class="wrapper">
+            <div class="link_wrapper">
+              <a class="text-content" href="./admin.html">Quay lại</a>
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
+                  <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
+                </svg>
+              </div>
+            </div>
           </div>
       </div>
+      <div class="form-msg" id="addSV">
+          <div class="input-container ic2">
+            <input id="ten-sv" class="input" type="text" name="ten-sv" placeholder=" " />
+            <div class="cut"></div>
+            <label for="ten-sv" class="placeholder">Tên sinh viên</label>
+          </div>
+          <div class="input-radio">
+            <div class="man">
+              <input type="radio" id="gender-sv-nam" name="gender" value="Nam">
+              <label for="gender">Nam</label>
+            </div>
+            <div class="women">
+              <input type="radio" id="gender-sv-nu" name="gender" value="Nữ">
+              <label for="gender">Nữ</label>  
+            </div>
+          </div>
+          <div class="input-container ic2">
+            <input id="dc-sv" class="input" type="text" name="dc-sv" placeholder=" " />
+            <div class="cut"></div>
+            <label for="dc-sv" class="placeholder">Địa chỉ</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="email-sv" class="input" type="text" name="email-sv" placeholder=" " />
+            <div class="cut"></div>
+            <label for="email-sv" class="placeholder">Email</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="sdt-sv" class="input" type="number" name="sdt-sv" placeholder=" " />
+            <div class="cut"></div>
+            <label for="sdt-sv" class="placeholder">Số điện thoại</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="dob-sv" class="input" type="text" name="dob-sv" placeholder=" " />
+            <div class="cut"></div>
+            <label for="dob-sv" class="placeholder">Ngày sinh(dd/mm/yyyy)</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="msv-sv" class="input" type="text" name="msv-sv" placeholder=" " />
+            <div class="cut"></div>
+            <label for="msv-sv" class="placeholder">Mã sinh viên</label>
+          </div>
+          <button  class="submit" onclick="addStudent()">Thêm</button>
+          <button onclick="showFormAdd()" class="submit">Huỷ</button>
+      </div>
+      <div class="form-msg" id="editSV">
+        <div class="input-container ic2">
+          <input id="edit-ten-sv" class="input" type="text" name="edit-ten-sv" placeholder=" " />
+          <div class="cut"></div>
+          <label for="ten-sv" class="placeholder">Tên sinh viên</label>
+        </div>
+        <div class="input-radio">
+          <div class="man">
+            <input type="radio" name="edit-gender" value="Nam">
+            <label for="gender">Nam</label>
+          </div>
+          <div class="women">
+            <input type="radio"  name="edit-gender" value="Nữ">
+            <label for="gender">Nữ</label>  
+          </div>
+        </div>
+        <div class="input-container ic2">
+          <input id="edit-dc-sv" class="input" type="text" name="edit-dc-sv" placeholder=" " />
+          <div class="cut"></div>
+          <label for="dc-sv" class="placeholder">Địa chỉ</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="edit-email-sv" class="input" type="text" name="edit-email-sv" placeholder=" " />
+          <div class="cut"></div>
+          <label for="email-sv" class="placeholder">Email</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="edit-sdt-sv" class="input" type="number" name="edit-sdt-sv" placeholder=" " />
+          <div class="cut"></div>
+          <label for="sdt-sv" class="placeholder">Số điện thoại</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="edit-dob-sv" class="input" type="text" name="edit-dob-sv" placeholder=" " />
+          <div class="cut"></div>
+          <label for="dob-sv" class="placeholder">Ngày sinh (dd/mm/yyyy)</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="edit-msv-sv" class="input" type="text" name="edit-msv-sv" placeholder=" " />
+          <div class="cut"></div>
+          <label for="msv-sv" class="placeholder">Mã sinh viên</label>
+        </div>
+        <button  class="submit" onclick="editInfoStudent()">Sửa</button>
+        <button onclick="showFormEdit()" class="submit">Huỷ</button>
+    </div>
     </div>
     <script>
         getDSSV();
-        const addStudent = () => {
+        const editInfoStudent = () => {
             const paths = localStorage.getItem("endpoint").split("*");
-            const APIUrl = `http://localhost:8080/api/v1/admin/nam-hocs/${paths[5]}/ky-hocs/${paths[4]}/nien-khoas/${paths[3]}/nganh/${paths[2]}/mon-hocs/${paths[1]}/lhps/${paths[0]}/sinh-viens`;
+            const ID = localStorage.getItem("editID");
+            console.log(ID);
+            const APIUrl = `http://localhost:8080/api/v1/admin/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/nien-khoas/${paths[2]}/nganh/${paths[3]}/mon-hocs/${paths[4]}/lhps/${paths[5]}/sinh-viens`;
             const data = {
-                "nguoiDung":{
-                    "name":"dang minh tuan",
-                    "gioiTinh":"nam",
-                    "diaChi":"haiphong",
-                    "email":"mihntuan2985@gmail.com",
-                    "soDienThoai":"0327894689",
-                    "ngaySinh":"2001-07-02"  
-                },
-                "maSinhVien": "b19dccn429",
-                "nienKhoaNganh": {
-                    "id": 4,
-                    "nganh": {
-                        "id": 1,
-                        "ten": "cong nghe thong tin"
-                    },
-                    "nienKhoa": {
-                        "id": 1,
-                        "ten": "d19"
-                    }
+              "nguoiDung":{
+                "name":document.querySelector('#edit-ten-sv').value,
+                "gioiTinh": document.querySelector('input[name="edit-gender"]:checked').value,
+                "diaChi":document.querySelector('#edit-dc-sv').value,
+                "email":document.querySelector('#edit-email-sv').value,
+                "soDienThoai":document.querySelector('#edit-sdt-sv').value,
+                "ngaySinh":document.querySelector('#edit-dob-sv').value.split("/").reverse().join("-"),
+              },
+              "maSinhVien": document.querySelector(`#edit-msv-sv`).value,
+              "nienKhoaNganh": {
+                  "id": 4,
+                  "nganh": {
+                      "id": 1,
+                      "ten": paths[3].split("-").join(" "),
+                  },
+                  "nienKhoa": {
+                      "id": 1,
+                      "ten": paths[2],
+                  }
                 }
             }
-
-            fetch(APIUrl, {
-                method: 'POST',
+            fetch(APIUrl+'/'+ID, {
+                method: 'PUT',
                 body: JSON.stringify(data),
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => res.json())
-                .then(response => console.log('Success:', JSON.stringify(response)))
-                .catch(error => console.error('Error: ', error));
+            }).then((res) => res.json())
+              .then((res) => window.location.reload())
+              .catch((error) => console.error('Error: ', error));
         }
 
-        const editInfoStudent = (btn) => {
-
-        }
-
+        const addStudent = () => {
+          const paths = localStorage.getItem("endpoint").split("*");
+              const url = `http://localhost:8080/api/v1/admin/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/nien-khoas/${paths[2]}/nganh/${paths[3]}/mon-hocs/${paths[4]}/lhps/${paths[5]}/sinh-viens`
+          const data = {
+              "nguoiDung":{
+                "name":document.querySelector("#ten-sv").value,
+                "gioiTinh": document.querySelector('input[name="gender"]:checked').value,
+                "diaChi":document.querySelector("#dc-sv").value,
+                "email":document.querySelector("#email-sv").value,
+                "soDienThoai":document.querySelector("#sdt-sv").value,
+                "ngaySinh":document.querySelector("#dob-sv").value.split("/").reverse().join("-"),
+              },
+              "maSinhVien": document.querySelector("#msv-sv").value,
+              "nienKhoaNganh": {
+                  "id": 4,
+                  "nganh": {
+                      "id": 1,
+                      "ten": paths[3].split("-").join(" "),
+                  },
+                  "nienKhoa": {
+                      "id": 1,
+                      "ten": paths[2],
+                  }
+                }
+              }
+              fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                }).then((res) => res.json())
+                  .then((res) => window.location.reload())
+                  .catch((error) => console.error('Error: ', error));
+          }
         const deleteStudent = (id) => {
             const paths = localStorage.getItem("endpoint").split("*");
-            const APIUrl = `http://localhost:8080/api/v1/admin/nam-hocs/${paths[5]}/ky-hocs/${paths[4]}/nien-khoas/${paths[3]}/nganh/${paths[2]}/mon-hocs/${paths[1]}/lhps/${paths[0]}/sinh-viens`;
+            const APIUrl = `http://localhost:8080/api/v1/admin/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/nien-khoas/${paths[2]}/nganh/${paths[3]}/mon-hocs/${paths[4]}/lhps/${paths[5]}/sinh-viens`;
             fetch(APIUrl + "/" + id, {
                 method: 'DELETE'
             }).then(() => {
@@ -106,8 +239,17 @@
             });
         }
         function showForm(index) {
-            var x = document.getElementById(`delete-${index}`);
-            x.classList.toggle("show");
+          var x = document.getElementById(`delete-${index}`);
+          x.classList.toggle("show");
+        }
+        function showFormAdd() {
+          var x = document.getElementById("addSV");
+          x.classList.toggle("show");
+        }
+        function showFormEdit(index) {
+          localStorage.setItem("editID", index);
+          var x = document.getElementById("editSV");
+          x.classList.toggle("show");
         }
     </script>
   </body>
