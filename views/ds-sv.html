@@ -111,42 +111,42 @@
         <div class="input-container ic2">
           <input id="edit-ten-sv" class="input" type="text" name="edit-ten-sv" placeholder=" " />
           <div class="cut"></div>
-          <label for="ten-sv" class="placeholder">Tên sinh viên</label>
+          <label for="edit-ten-sv" class="placeholder">Tên sinh viên</label>
         </div>
         <div class="input-radio">
           <div class="man">
             <input type="radio" name="edit-gender" value="Nam">
-            <label for="gender">Nam</label>
+            <label for="edit-gender">Nam</label>
           </div>
           <div class="women">
             <input type="radio"  name="edit-gender" value="Nữ">
-            <label for="gender">Nữ</label>  
+            <label for="edit-gender">Nữ</label>  
           </div>
         </div>
         <div class="input-container ic2">
           <input id="edit-dc-sv" class="input" type="text" name="edit-dc-sv" placeholder=" " />
           <div class="cut"></div>
-          <label for="dc-sv" class="placeholder">Địa chỉ</label>
+          <label for="edit-dc-sv" class="placeholder">Địa chỉ</label>
         </div>
         <div class="input-container ic2">
           <input id="edit-email-sv" class="input" type="text" name="edit-email-sv" placeholder=" " />
           <div class="cut"></div>
-          <label for="email-sv" class="placeholder">Email</label>
+          <label for="edit-email-sv" class="placeholder">Email</label>
         </div>
         <div class="input-container ic2">
           <input id="edit-sdt-sv" class="input" type="number" name="edit-sdt-sv" placeholder=" " />
           <div class="cut"></div>
-          <label for="sdt-sv" class="placeholder">Số điện thoại</label>
+          <label for="edit-sdt-sv" class="placeholder">Số điện thoại</label>
         </div>
         <div class="input-container ic2">
           <input id="edit-dob-sv" class="input" type="text" name="edit-dob-sv" placeholder=" " />
           <div class="cut"></div>
-          <label for="dob-sv" class="placeholder">Ngày sinh (dd/mm/yyyy)</label>
+          <label for="edit-dob-sv" class="placeholder">Ngày sinh (dd/mm/yyyy)</label>
         </div>
         <div class="input-container ic2">
           <input id="edit-msv-sv" class="input" type="text" name="edit-msv-sv" placeholder=" " />
           <div class="cut"></div>
-          <label for="msv-sv" class="placeholder">Mã sinh viên</label>
+          <label for="edit-msv-sv" class="placeholder">Mã sinh viên</label>
         </div>
         <button  class="submit" onclick="editInfoStudent()">Sửa</button>
         <button onclick="showFormEdit()" class="submit">Huỷ</button>
@@ -157,10 +157,9 @@
         const editInfoStudent = () => {
             const paths = localStorage.getItem("endpoint").split("*");
             const ID = localStorage.getItem("editID");
-            console.log(ID);
             const APIUrl = `http://localhost:8080/api/v1/admin/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/nien-khoas/${paths[2]}/nganh/${paths[3]}/mon-hocs/${paths[4]}/lhps/${paths[5]}/sinh-viens`;
             const data = {
-              "nguoiDung":{
+              "nguoiDung": {
                 "name":document.querySelector('#edit-ten-sv').value,
                 "gioiTinh": document.querySelector('input[name="edit-gender"]:checked').value,
                 "diaChi":document.querySelector('#edit-dc-sv').value,
@@ -168,18 +167,7 @@
                 "soDienThoai":document.querySelector('#edit-sdt-sv').value,
                 "ngaySinh":document.querySelector('#edit-dob-sv').value.split("/").reverse().join("-"),
               },
-              "maSinhVien": document.querySelector(`#edit-msv-sv`).value,
-              "nienKhoaNganh": {
-                  "id": 4,
-                  "nganh": {
-                      "id": 1,
-                      "ten": paths[3].split("-").join(" "),
-                  },
-                  "nienKhoa": {
-                      "id": 1,
-                      "ten": paths[2],
-                  }
-                }
+              "maSinhVien": document.querySelector(`#edit-msv-sv`).value
             }
             fetch(APIUrl+'/'+ID, {
                 method: 'PUT',
