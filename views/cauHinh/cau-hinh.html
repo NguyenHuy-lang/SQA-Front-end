@@ -15,11 +15,11 @@
     </div>
     <script>
       (() => {
-        const user = JSON.parse(localStorage.getItem("userInfor"));
+        const user = localStorage.getItem("userInfor");
         if (user.includes("maGiaoVien")) {
           const name = JSON.parse(user).nguoiDung.name.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())
             document.getElementById('root').innerHTML = `<div class="nav-bar">
-              <h3 class="title"><a href="/views/sinhvien.html">Quản lý đào tạo sinh viên</a></h3>
+              <h3 class="title"><a href="/views/admin.html">Quản lý đào tạo sinh viên</a></h3>
               <ul class="list">
                   <li class="item">Xin chào ${name}</li>
                   <li>|</li>
