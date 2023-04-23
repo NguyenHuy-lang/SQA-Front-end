@@ -3,7 +3,7 @@ const saveInfo = (btn) => {
 }
 
 const getNamHoc = () => {
-    const APIUrl = "http://localhost:8080/api/v1/sinh-vien/nam-hocs";
+    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/${JSON.parse(localStorage.getItem("userInfor")).id}/nam-hocs`;
     fetch(APIUrl, {
         method: 'GET',
         headers: {'content-type':'application/json'},
@@ -36,7 +36,7 @@ const getKyHoc = () => {
         paths = paths.slice(0,1);
         localStorage.setItem("endpoint", paths.join("*"));
     }
-    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${paths[0]}/ky-hocs`;
+    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/${JSON.parse(localStorage.getItem("userInfor")).id}/nam-hocs/${paths[0]}/ky-hocs`;
     fetch(APIUrl, {
         method: 'GET',
         headers: {'content-type':'application/json'},
@@ -63,7 +63,7 @@ const getMonHoc = () => {
         paths = paths.slice(0,2);
         localStorage.setItem("endpoint", paths.join("*"));
     }
-    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/mon-hoc`;
+    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/${JSON.parse(localStorage.getItem("userInfor")).id}/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/mon-hoc`;
 
     fetch(APIUrl, {
         method: 'GET',
@@ -100,7 +100,8 @@ const getKetQua = () => {
         paths = paths.slice(0,3);
         localStorage.setItem("endpoint", paths.join("*"));
     }
-    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/mon-hoc/${paths[2]}/ket-quas`;
+    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/${JSON.parse(localStorage.getItem("userInfor")).id}/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/mon-hoc/${paths[2]}/ket-quas`;
+    console.log(APIUrl);
     fetch(APIUrl, {
         method: 'GET',
         headers: {'content-type':'application/json'},
@@ -108,18 +109,18 @@ const getKetQua = () => {
     .then((response) => response.json())
     .then((data) => {
             return document.querySelector("#main").innerHTML = 
-                    `<tr>
-                        <td>${data.nameSinhVien.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())}</td>
-                        <td>${data.maSinhVien}</td>
-                        <td>${data.diemCC}</td>
-                        <td>${data.diemTH}</td>
-                        <td>${data.diemKT}</td>
-                        <td>${data.diemBT}</td>
-                        <td>${data.diemCuoiKy}</td>
-                        <td>${data.diemHe4 || "None"}</td>
-                        <td>${data.diemHe10 || "None"}</td>
-                        <td>${data.diemChu || "None"}</td>
-                    </tr>`;
+                `<tr>
+                    <td>${data.nameSinhVien.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())}</td>
+                    <td>${data.maSinhVien}</td>
+                    <td>${data.diemCC}</td>
+                    <td>${data.diemTH}</td>
+                    <td>${data.diemKT}</td>
+                    <td>${data.diemBT}</td>
+                    <td>${data.diemCuoiKy}</td>
+                    <td>${data.diemHe4 || "None"}</td>
+                    <td>${data.diemHe10 || "None"}</td>
+                    <td>${data.diemChu || "None"}</td>
+                </tr>`;
     });
     
 }
