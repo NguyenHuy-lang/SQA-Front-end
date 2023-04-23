@@ -66,8 +66,14 @@
         });
         const data = await response.json();
         if (data.status != "500") {
-          localStorage.setItem('userInfor', JSON.stringify(data));
-          window.location.href = '/views/admin.html';
+          if (data.maGiaoVien) {
+            localStorage.setItem('userInfor', JSON.stringify(data));
+            window.location.href = '/views/admin.html';
+          }else{
+            localStorage.setItem('userInfor', JSON.stringify(data));
+            window.location.href = '/views/sinhvien.html';
+          }
+          
         } else {
           window.location.href = '/index.html';
           alert("Thông tin không chính xác");

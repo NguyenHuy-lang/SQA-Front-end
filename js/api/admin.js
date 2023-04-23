@@ -233,6 +233,35 @@ const getDSSV = () => {
     });
 }
 
+function getKetQuaLHP() {
+    let paths = localStorage.getItem("endpoint").split("*");
+    if(paths.length > 6){
+        paths = paths.slice(0,6);
+        localStorage.setItem("endpoint", paths.join("*"));
+    }
+    const APIUrl = `http://localhost:8080/api/v1/admin/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/nien-khoas/${paths[2]}/nganh/${paths[3]}/mon-hocs/${paths[4]}/lhps/${paths[5]}/ket-quas`;
+    fetch(APIUrl, {
+        method: 'GET',
+        headers: {'content-type':'application/json'},
+    })
+    .then((response) => response.json())
+    .then((data) => {
+            return document.querySelector("#main").innerHTML = 
+                    `<tr>
+                        <td>${data.nameSinhVien.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())}</td>
+                        <td>${data.maSinhVien}</td>
+                        <td>${data.diemCC}</td>
+                        <td>${data.diemTH}</td>
+                        <td>${data.diemKT}</td>
+                        <td>${data.diemBT}</td>
+                        <td>${data.diemCuoiKy}</td>
+                        <td>${data.diemHe4 || "None"}</td>
+                        <td>${data.diemHe10 || "None"}</td>
+                        <td>${data.diemChu || "None"}</td>
+                    </tr>`;
+    });
+}
+
 function getThangDiem() {
     const APIUrl = "http://localhost:8080/api/v1/cau-hinh-thang-diem/thang-diems";
     fetch(APIUrl, {

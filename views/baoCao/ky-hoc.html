@@ -2,24 +2,25 @@
 <html>
   <head>
     <title>Quản lý đào tạo PTIT</title>
-    <link rel='stylesheet' href='../asset/css/index.css' />
-    <link rel='stylesheet' href='../asset/css/style.css' />
-    <link rel='stylesheet' href='../asset/css/form.css' />
+    <link rel='stylesheet' href='../../asset/css/index.css' />
+    <link rel='stylesheet' href='../../asset/css/style.css' />
+    <link rel='stylesheet' href='../../asset/css/form.css' />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
-    <script src="../js/api/student.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="../../js/api/sub-admin.js"></script>
+
+    <script src="../../js/main.js"></script>
     <div class="main"></div>
     <div id="root" class="container">
     </div>
     <script>
       (() => {
         const user = localStorage.getItem("userInfor");
-        if (user.includes("maSinhVien")) {
+        if (user.includes("maGiaoVien")) {
           const name = JSON.parse(user).nguoiDung.name.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())
             document.getElementById('root').innerHTML = `<div class="nav-bar">
-              <h3 class="title"><a href="/views/sinhvien.html">Quản lý đào tạo sinh viên</a></h3>
+              <h3 class="title"><a href="/views/admin.html">Quản lý đào tạo sinh viên</a></h3>
               <ul class="list">
                   <li class="item">Xin chào ${name}</li>
                   <li>|</li>
@@ -27,15 +28,15 @@
               </ul>
             </div>
             <div class="content">
-              <h3 id="func-name">Chọn chức năng</h3>
-              <ul class="list" id="main">
-                  <li><button class="button"><a href="./sinhVien/nam-hoc.html">Xem thống kê điểm</a></button></li>
-              </ul>
+              <h3 id="func-name">Chọn năm học</h3>
+              <ul id="main"></ul>
+              <h2 id="error"></h2>
             </div>`
+            getKyHoc();
         }
         else {
           document.getElementById("root").innerHTML = `
-            <div class="nav-bar">
+          <div class="nav-bar">
               <h3>Oops!!! Something wrong...</h3>
             </div>`
         }
