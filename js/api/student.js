@@ -31,8 +31,12 @@ const getNamHoc = () => {
 }
 
 const getKyHoc = () => {
-    const path = localStorage.getItem("endpoint2");
-    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${path.trim()}/ky-hocs`;
+    let paths = localStorage.getItem("endpoint2").split("*");
+    if(paths.length>1){
+        paths = paths.slice(0,1);
+        localStorage.setItem("endpoint", paths.join("*"));
+    }
+    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${paths[0]}/ky-hocs`;
     fetch(APIUrl, {
         method: 'GET',
         headers: {'content-type':'application/json'},
@@ -44,7 +48,7 @@ const getKyHoc = () => {
                         <button 
                             class="button" 
                             onclick="saveInfo(this)" 
-                            id="${item.kyHoc.ten.split(" ").join("-")}*${item.namHoc.ten}">
+                            id="${item.namHoc.ten}*${item.kyHoc.ten.split(" ").join("-")}">
                             <a href="./mon-hoc.html">${item.kyHoc.ten}</a>
                         </button>
                     </li>`;
@@ -54,8 +58,12 @@ const getKyHoc = () => {
 }
 
 const getMonHoc = () => {
-    const paths = localStorage.getItem("endpoint2").split("*");
-    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${paths[1]}/ky-hocs/${paths[0]}/mon-hoc`;
+    let paths = localStorage.getItem("endpoint2").split("*");
+    if(paths.length>2){
+        paths = paths.slice(0,2);
+        localStorage.setItem("endpoint", paths.join("*"));
+    }
+    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/mon-hoc`;
 
     fetch(APIUrl, {
         method: 'GET',
@@ -69,7 +77,7 @@ const getMonHoc = () => {
                         <td>${item.id}</td>
                         <td 
                             onclick="saveInfo(this)" 
-                            id="${item.ten.split(" ").join("-")}*${localStorage.getItem("endpoint2")}">
+                            id="${localStorage.getItem("endpoint2")}*${item.ten.split(" ").join("-")}">
                             <a href="./ket-qua.html">${item.ten.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())}</a>
                         </td>
                         <td>${item.tyLeDiemCC}</td>
@@ -87,8 +95,12 @@ const getMonHoc = () => {
 }
 
 const getKetQua = () => {
-    const paths = localStorage.getItem("endpoint2").split("*");
-    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${paths[2]}/ky-hocs/${paths[1]}/mon-hoc/${paths[0]}/ket-quas`;
+    let paths = localStorage.getItem("endpoint2").split("*");
+    if(paths.length>3){
+        paths = paths.slice(0,3);
+        localStorage.setItem("endpoint", paths.join("*"));
+    }
+    const APIUrl = `http://localhost:8080/api/v1/sinh-vien/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/mon-hoc/${paths[2]}/ket-quas`;
     fetch(APIUrl, {
         method: 'GET',
         headers: {'content-type':'application/json'},

@@ -5,7 +5,6 @@
     <link rel='stylesheet' href='../../asset/css/index.css' />
     <link rel='stylesheet' href='../../asset/css/style.css' />
     <link rel='stylesheet' href='../../asset/css/form.css' />
-    <link rel='stylesheet' href='../../asset/css/dashboard.css' />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
@@ -28,39 +27,12 @@
               </ul>
             </div>
             <div class="content">
-              <h5 id="func-name">Nhập môn công nghệ phần mềm</h5>
-              <div class="managerTable">
-                  <table width=100%">
-                    <col style="width:22%">
-                    <col style="width:15%">
-                    <col style="width:10%">
-                    <col style="width:10%">
-                    <col style="width:10%">
-                    <col style="width:10%">
-                    <col style="width:10%">
-                    <col style="width:10%">
-                    <col style="width:10%">
-                    <col style="width:10%">
-                    <thead>
-                      <tr>
-                        <th>Tên sinh viên</th>
-                        <th>Mã sinh viên</th>
-                        <th>Điểm chuyên cần</th>  
-                        <th>Điểm thực hành</th>  
-                        <th>Điểm kiểm tra</th>
-                        <th>Điểm bài tập</th>
-                        <th>Điểm cuối kỳ</th>
-                        <th>Điểm hệ 4</th>
-                        <th>Điểm hệ 10</th>
-                        <th>Điểm chữ</th>
-                      </tr>
-                    </thead>
-                    <tbody id="main">
-                    </tbody>
-                  </table>
-                </div>
+                <h3 id="func-name">Chọn kỳ học</h3>
+                <ul id="main">
+                    <li><button class="button" ><a href="./ch-thang-diem.html">Cấu hình thang điểm</a></button></li>
+                    <li><button class="button" ><a href="./ch-nganh-hoc.html">Cấu hình môn học</a></button></li>
+                </ul>
             </div>`
-            getKetQua();
         }
         else {
           document.getElementById("root").innerHTML = `

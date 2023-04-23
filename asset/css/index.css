@@ -158,6 +158,16 @@ button.button {
     border: none;
 }
 
+li button {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 100;
+    background-color:#f6a054;
+    padding: 2px 8px;
+    font-size: 1.05rem;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
 .wrapper{
     position: fixed;
     left: 50%;

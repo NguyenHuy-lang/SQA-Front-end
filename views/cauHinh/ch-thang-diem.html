@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quản lý đào tạo PTIT</title>
+    <link rel='stylesheet' href='../../asset/css/index.css' />
+    <link rel='stylesheet' href='../../asset/css/style.css' />
+    <link rel='stylesheet' href='../../asset/css/form.css' />
+    <link rel='stylesheet' href='../../asset/css/dashboard.css' />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <script src="../../js/api/admin.js"></script>
+    <script src="../../js/main.js"></script>
+    <div class="main"></div>
+    <div id="root" class="container">
+    </div>
+    <script>
+      (() => {
+        const user = localStorage.getItem("userInfor");
+        if (user) {
+          const name = JSON.parse(user).nguoiDung.name.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())
+            document.getElementById('root').innerHTML = `<div class="nav-bar">
+                <h3 class="title"><a href="/views/admin.html">Quản lý đào tạo sinh viên</a></h3>
+                <ul class="list">
+                    <li class="item">Xin chào ${name}</li>
+                    <li>|</li>
+                    <li class="item"><button onClick="logout()">Đăng xuất</button></li>
+                </ul>
+              </div>
+              <div class="content">
+                <h4 id="func-name">Danh sách thang điểm:</h4>
+                <div class="managerTable">
+                    <table width=60%">
+                      <col style="width:15%">
+                      <col style="width:20%">
+                      <col style="width:10%">
+                      <col style="width:10%">
+                      <thead>
+                        <tr>
+                          <th>Phạm vi (4)</th>
+                          <th>Pham vị (10)</th>
+                          <th>Điểm chữ</th>  
+                          <th>Sửa thang điểm</th>
+                        </tr>
+                      </thead>
+                      <tbody id="main">
+                      </tbody>
+                    </table>
+                  </div>
+                  <h2 id="error"></h2>
+              </div>
+            </div>`
+          getThangDiem();
+        }
+        else {
+          document.getElementById("root").innerHTML = `
+          <div class="nav-bar">
+              <h3>Oops!!! Something wrong...</h3>
+            </div>`
+        }
+      })();
+        const editThangDiem = (index) => {
+            const APIUrl = `http://localhost:8080/api/v1/cau-hinh-thang-diem/thang-diems`;
+            const data = {
+                "id":index,
+                "from":document.querySelector('#from').value,
+                "to":document.querySelector('#to').value,
+                "diemChu":document.querySelector('#diem-chu').value,
+                "diemHe4":document.querySelector('#diemHe4').value,
+            }
+            fetch(APIUrl, {
+                method: 'PUT',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((res) => res.json())
+              .then((res) => window.location.reload())
+              .catch((error) => console.error('Error: ', error));
+        }
+        function showFormEdit() {
+          var x = document.getElementById("editSV");
+          x.classList.toggle("show");
+        }
+    </script>
+  </body>
+</html>

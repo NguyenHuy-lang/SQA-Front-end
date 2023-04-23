@@ -8,25 +8,39 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
-    <script src="../js/api/admin.js"></script>
-    <div class="main"></div>
-    <div class="container">
-      <div class="nav-bar">
-        <h3 class="title"><a href="/views">Quản lý đào tạo sinh viên</a></h3>
-        <ul class="list">
-            <li class="item">Xin chào Nguyễn Quang Huy (Admin)</li>
-            <li>|</li>
-            <li class="item">Đăng xuất</li>
-        </ul>
-      </div>
-      <div class="content">
-        <h3 id="func-name">Chọn chức năng</h3>
-        <ul class="list" id="main">
-            <li><button class="button"><a href="./nam-hoc.html">Quản lý sinh viên theo lớp học phần</a></button></li>
-            <li><button class="button" ><a href="./error.html">Xem báo cáo thống kê</a></button></li>
-            <li><button class="button" ><a href="./error.html">Cấu hình</a></button></ul>
-        </ul>
-      </div>
-    </div>
+      <script src="../js/api/admin.js"></script>
+      <script src="../js/main.js"></script>
+      <div class="main"></div>
+      <div id="root" class="container"></div>
+    <script>
+      (() => {
+        const user = localStorage.getItem("userInfor");
+        if (user) {
+          const name = JSON.parse(user).nguoiDung.name.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())
+            document.getElementById('root').innerHTML = `<div class="nav-bar">
+              <h3 class="title"><a href="/views/admin.html">Quản lý đào tạo sinh viên</a></h3>
+              <ul class="list">
+                  <li class="item">Xin chào ${name}</li>
+                  <li>|</li>
+                  <li class="item"><button onClick="logout()">Đăng xuất</button></li>
+              </ul>
+            </div>
+            <div class="content">
+              <h3 id="func-name">Chọn chức năng</h3>
+              <ul class="list" id="main">
+                  <li><button class="button"><a href="./nam-hoc.html">Quản lý sinh viên theo lớp học phần</a></button></li>
+                  <li><button class="button" ><a href="./error.html">Xem báo cáo thống kê</a></button></li>
+                  <li><button class="button" ><a href="./cauHinh/cau-hinh.html">Cấu hình</a></button></li>
+              </ul>
+            </div>`
+        }
+        else {
+          document.getElementById("root").innerHTML = `
+            <div class="nav-bar">
+              <h3>Oops!!! Something wrong...</h3>
+            </div>`
+        }
+      })();
+    </script>
   </body>
 </html>
