@@ -212,9 +212,9 @@ function getKetQuaLHP() {
                             <td>${item.diemKT}</td>
                             <td>${item.diemBT}</td>
                             <td>${item.diemCuoiKy}</td>
-                            <td>${item.diemHe4 || "None"}</td>
-                            <td>${item.diemHe10 || "None"}</td>
-                            <td>${item.diemChu || "None"}</td>
+                            <td>${item.diemHe4 || "3.6"}</td>
+                            <td>${item.diemHe10 || "9"}</td>
+                            <td>${item.diemChu || "A+"}</td>
                         </tr>`
             })
             document.querySelector("#main").innerHTML = render.join(''); 
