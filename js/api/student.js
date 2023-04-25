@@ -1,5 +1,5 @@
 const saveInfo = (btn) => {
-    localStorage.setItem("endpoint2", btn.getAttribute("id"));
+    localStorage.setItem("endpoint", btn.getAttribute("id"));
 }
 
 const getNamHoc = () => {
@@ -31,7 +31,7 @@ const getNamHoc = () => {
 }
 
 const getKyHoc = () => {
-    let paths = localStorage.getItem("endpoint2").split("*");
+    let paths = localStorage.getItem("endpoint").split("*");
     if(paths.length>1){
         paths = paths.slice(0,1);
         localStorage.setItem("endpoint", paths.join("*"));
@@ -48,7 +48,7 @@ const getKyHoc = () => {
                         <button 
                             class="button" 
                             onclick="saveInfo(this)" 
-                            id="${item.namHoc.ten}*${item.kyHoc.ten.split(" ").join("-")}">
+                            id="${localStorage.getItem("endpoint")}*${item.kyHoc.ten.split(" ").join("-")}">
                             <a href="./mon-hoc.html">${item.kyHoc.ten}</a>
                         </button>
                     </li>`;
@@ -58,7 +58,7 @@ const getKyHoc = () => {
 }
 
 const getMonHoc = () => {
-    let paths = localStorage.getItem("endpoint2").split("*");
+    let paths = localStorage.getItem("endpoint").split("*");
     if(paths.length>2){
         paths = paths.slice(0,2);
         localStorage.setItem("endpoint", paths.join("*"));
@@ -77,7 +77,7 @@ const getMonHoc = () => {
                         <td>${item.id}</td>
                         <td 
                             onclick="saveInfo(this)" 
-                            id="${localStorage.getItem("endpoint2")}*${item.ten.split(" ").join("-")}">
+                            id="${localStorage.getItem("endpoint")}*${item.ten.split(" ").join("-")}">
                             <a href="./ket-qua.html">${item.ten.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())}</a>
                         </td>
                         <td>${item.tyLeDiemCC}</td>
@@ -95,11 +95,12 @@ const getMonHoc = () => {
 }
 
 const getKetQua = () => {
-    let paths = localStorage.getItem("endpoint2").split("*");
+    let paths = localStorage.getItem("endpoint").split("*");
     if(paths.length>3){
         paths = paths.slice(0,3);
         localStorage.setItem("endpoint", paths.join("*"));
     }
+    document.querySelector("#func-name").innerHTML = paths[2].split("-").join(" ").toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase());
     const APIUrl = `http://localhost:8080/api/v1/sinh-vien/${JSON.parse(localStorage.getItem("userInfor")).id}/nam-hocs/${paths[0]}/ky-hocs/${paths[1]}/mon-hoc/${paths[2]}/ket-quas`;
     console.log(APIUrl);
     fetch(APIUrl, {
@@ -108,19 +109,19 @@ const getKetQua = () => {
     })
     .then((response) => response.json())
     .then((data) => {
-            return document.querySelector("#main").innerHTML = 
-                `<tr>
-                    <td>${data.nameSinhVien.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())}</td>
-                    <td>${data.maSinhVien}</td>
-                    <td>${data.diemCC}</td>
-                    <td>${data.diemTH}</td>
-                    <td>${data.diemKT}</td>
-                    <td>${data.diemBT}</td>
-                    <td>${data.diemCuoiKy}</td>
-                    <td>${data.diemHe4 || "None"}</td>
-                    <td>${data.diemHe10 || "None"}</td>
-                    <td>${data.diemChu || "None"}</td>
-                </tr>`;
+        return document.querySelector("#main").innerHTML = 
+            `<tr>
+                <td>${data.nameSinhVien.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())}</td>
+                <td>${data.maSinhVien}</td>
+                <td>${data.diemCC}</td>
+                <td>${data.diemTH}</td>
+                <td>${data.diemKT}</td>
+                <td>${data.diemBT}</td>
+                <td>${data.diemCuoiKy}</td>
+                <td>${data.diemHe4 || "None"}</td>
+                <td>${data.diemHe10 || "None"}</td>
+                <td>${data.diemChu || "None"}</td>
+            </tr>`;
     });
     
 }
